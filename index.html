@@ -1,44 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>Video Player</title>
-</head>
-<body>
-    <h1>Hola Mundo!</h1>
-    <h2>Subtitulo</h2>
-    <p>Hola mundito!</p>
-    <button class="button" id="backward"></button>
-    <button class="button" id="play"></button>
-    <button class="button" id="pause" hidden></button>
-    <button class="button" id="fordward"></button>
-    <br>
-    <br>
-    <video id="video" poster="./images/poster.jpg" controls muted src="./videos/lofi.mp4" width="400"></video>
-
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="player">
+        <button
+          class="button"
+          id="backward"
+          aria-label="Retroceder 10 segundos"
+          title="Retroceder 10 segundos"
+        ></button>
+        <button
+          class="button"
+          id="play"
+          aria-label="Play"
+          title="Play"
+        ></button>
+        <button
+          class="button"
+          id="pause"
+          aria-label="Pausa"
+          title="Pausa"
+          hidden
+        ></button>
+        <button
+          class="button"
+          id="fordward"
+          aria-label="Adelantar 10 segundos"
+          title="Adelantar 10 segundos"
+        ></button>
+        <br />
+        <br />
+        <video
+          id="video"
+          poster="./images/poster.jpg"
+          controls
+          muted
+          src="./videos/lofi.mp4"
+          width="400"
+        ></video>
+      </div>
+    </div>
     <script>
-        const $video = document.querySelector('#video')
-        const $play = document.querySelector('#play')
-        const $pause = document.querySelector('#pause')
+      const $video = document.querySelector("#video");
+      const $play = document.querySelector("#play");
+      const $pause = document.querySelector("#pause");
 
-        $play.addEventListener('click', handlePlay)
-        $pause.addEventListener('click', handlePause)
+      $play.addEventListener("click", handlePlay);
+      $pause.addEventListener("click", handlePause);
 
+      function handlePlay() {
+        $video.play();
+        $play.hidden = true;
+        $pause.hidden = false;
+      }
 
-        function handlePlay() {
-            $video.play()
-            $play.hidden = true
-            $pause.hidden = false
-        }
-
-        function handlePause() {
-            $video.pause()
-            $play.hidden = false
-            $pause.hidden = true
-        }
+      function handlePause() {
+        $video.pause();
+        $play.hidden = false;
+        $pause.hidden = true;
+      }
     </script>
-</body>
+  </body>
 </html>
