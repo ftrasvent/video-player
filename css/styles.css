@@ -1,4 +1,4 @@
-@import "./buttons.css";
+@import './buttons.css';
 
 body {
   background-color: #26b4bc;
@@ -35,6 +35,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   /* z-index: 2; */
 }
 
